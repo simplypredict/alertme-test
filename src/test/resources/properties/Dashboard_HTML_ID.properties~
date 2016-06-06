@@ -1,0 +1,68 @@
+nrich_login_textfield_html_id = //*[@id='page-content-wrapper']/div/div/div[2]/form/p[1]/input
+nrich_password_textfield_html_id = //*[@id='page-content-wrapper']/div/div/div[2]/form/p[2]/input
+nrich_login_button_html_id = //*[@id='page-content-wrapper']/div/div/div[2]/form/div[4]/button
+dashboard_main_nav_html_id = //*[@id='page-content-wrapper']/button
+dashboard_main_nav_user_tab_html_id = //*[@id='sidebar-wrapper']/ul/li[4]/a/span
+dashboard_main_nav_users_list_html_id = //*[@id='page-content-wrapper']/div/div[2]/div
+dashboard_main_nav_users_add_user_button_html_id = //*[@id='title-breadcrumb-option-demo']/ol/button
+dashboard_main_nav_users_add_user_editable_row_html_id = //*[@id='page-content-wrapper']/div/div[2]/div[1]/form
+dashboard_main_nav_users_add_user_editable_row_email_html_id =//*[@id='page-content-wrapper']/div/div[2]/div[1]/form/div[1]/p/input
+dashboard_main_nav_users_minimize_button_html_id = //*[@id='page-content-wrapper']/button
+dashboard_main_nav_users_add_user_editable_row_firstname_html_id =//*[@id='page-content-wrapper']/div/div[2]/div[1]/form/div[2]/p/input
+dashboard_main_nav_users_add_user_editable_row_lastname_html_id = //*[@id='page-content-wrapper']/div/div[2]/div[1]/form/div[3]/p/input
+
+dashboard_main_nav_users_add_user_editable_row_cancel_button_html_id = //*[@id='page-content-wrapper']/div/div[2]/div[1]/form/div[6]/i[1]
+dashboard_main_nav_users_add_user_editable_row_ok_icon_html_id = //*[@id='page-content-wrapper']/div/div[2]/div[1]/form/div[6]/button
+
+nrich_side_menu_toggle_xpath = //*[@id='page-content-wrapper']/button
+nrich_side_menu_option_xpath = /html/body/div[2]/sidebar/nav/ul
+
+dashboard_main_nav_users_user_list_html_id = //div[1]/span
+
+
+dashboard_main_nav_users_add_user_editable_row_tableaukey_html_id = //*[@id='page-content-wrapper']/div/div[2]/div[1]/form/div[4]/p/input
+#PRED-71 -
+dashboard_main_nav_segment_tab_html_id = //*[@id='sidebar-wrapper']/ul/li[3]/a/span
+dashboard_main_nav_segment_name_textbox_tab_html_id = //*[@id='page-content-wrapper']/div/div[2]/form/div[1]/div[1]/p/input
+dashboard_main_nav_segment_section_add_icon_html_id = //*[@id='page-content-wrapper']/div/div[2]/form/div[1]/div[2]/button[3]
+dashboard_main_nav_segment_section_accept_icon_html_id = //*[@id='page-content-wrapper']/div/div[2]/form/div[1]/div[2]/button[2]
+dashboard_main_nav_segment_section_cancel_icon_html_id = //*[@id='page-content-wrapper']/div/div[2]/form/div[1]/div[2]/button[1]
+dashboard_main_nav_segment_section_dropdown_list_html_id =//*[@id='page-content-wrapper']/div/div[2]/form/div[3]/div[1]/select
+dashboard_main_nav_segment_section_city_textbox_html_id = //*[@id='segmentAtrrIdNo0']/input
+
+
+#PRED-179-
+nrich_dashboard_page_title_html_id = //*[@id='title-breadcrumb-option-demo']/div[1]/div
+nrich_menu_button_html_id = //*[@id='page-content-wrapper']/button
+nrich_User_Tab_html_id = html/body/div[2]/sidebar/nav/ul/li[4]/a/span
+nrich_List = //*[@id='page-content-wrapper']/div/div[3]/div
+nrich_Logout_button_admin = //*[@id='sidebar-wrapper']/ul/li[7]/a/span
+nrich_Logout_button_user = //*[@id='sidebar-wrapper']/ul/li[6]/a/span
+
+
+#List Test
+
+
+
+nrich_menu_button_html_id = //*[@id='page-content-wrapper']/button
+nrich_List_Tab_html_id = //*[@id='sidebar-wrapper']/ul/li[2]/a/span
+nrich_Add_List_Tab_html_id = //*[@id='title-breadcrumb-option-demo']/button
+nrich_Name_Textfield_html_id = //*[@id='addList']/div[1]/input
+nrich_Confirmation_Button_html_id = //*[@id='addList']/div[3]/button
+nrich_Status_Value_html_id = //*[@id='page-content-wrapper']/div/div[3]/div[2]/div[4]/span
+nrich_Cross_Button_html_id= //*[@id='addList']/div[3]/i[1]
+nrich_List_1 = //*[@id='page-content-wrapper']/div/div[3]/div
+nrich_List1 = //*[@id='page-content-wrapper']/div/div[2]/div
+nrich_Attributes_list = html/body/div[2]/div[2]/div/div[3]/div/div/div[2]
+nrich_Right_Button = html/body/div[2]/div[2]/div/div[3]/div/div/div[1]/div/i[1]
+
+
+#PRED108.
+nrich_Change_Password_Tab_user = html/body/div[2]/sidebar/nav/ul/li[5]/a
+nrich_Change_Password_Tab = //*[@id='sidebar-wrapper']/ul/li[6]/a
+nrich_Enter_Password_Text_Field = html/body/div[2]/div[2]/div/div/div/form/p[1]/input
+nrich_Enter_New-Password_Text_Field = html/body/div[2]/div[2]/div/div/div/form/p[2]/input
+nrich_Enter_Re_New-Password_Text_Field = html/body/div[2]/div[2]/div/div/div/form/p[3]/input
+nrich_Change_Password_Right_Button = html/body/div[2]/div[2]/div/div/div/form/div[7]/button
+nrich_Cancel_Button = html/body/div[2]/div[2]/div/div[3]/div/div/div[1]/div/i[2]
+nrich_Select_All_Check_Button = html/body/div[2]/div[2]/div/div[3]/div/div/div[2]/label/input

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
+<suite name="SparkWay" verbose="1">
+    <test name="Smoke Test">
+        <classes>
+
+            <class name="com.test.nrich.Login"></class>
+            <class name="com.test.nrich.Dashboard"></class>
+            <class name="com.test.nrich.ListCheck"></class>
+            <class name="com.test.nrich.DeleteCheck"></class>
+            <class name="com.test.nrich.Segment"></class>
+            <class name="com.test.nrich.LogoutCheck"></class>
+            <class name="com.test.nrich.AdminSegmentCheck"></class>
+            <class name="com.test.nrich.AdminDeleteCheck"></class>
+            <class name="com.test.nrich.ResetPassword"></class>
+
+        </classes>
+    </test>
+</suite>

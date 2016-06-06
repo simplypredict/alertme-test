@@ -1,0 +1,15 @@
+#Login Tests
+
+nrich_login_textfield_valid_assert_value = arihantj@sparkway.com
+nrich_login_textfield_notnull_assert_value = Texfield value should not be null.
+nrich_login_textfield_invalid_assert_value = admin@ongraph.com
+nrich_password_textfield_valid_assert_value = Ongraph12341
+nrich_password_tesxtfield_valid_assert_value12= testadmin
+nrich_dashboard_page_title_assert_value= Dashboard
+nrich_login_username_error_msg_Assert_value = This email is not registered.
+nrich_login_password_error_msg_Assert_value = This password is not correct.
+nrich_login_assert_fail_msg = text field should not be null. Please check your html structure
+nrich_sidemenu_logout_option_text = Sign out
+nrich_password_textfield_invalid_assert_value = winteriscoming
+
+

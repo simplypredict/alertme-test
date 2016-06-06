@@ -1,0 +1,52 @@
+nrich_login_textfield_valid_assert_value_1 = yash.phophalia@gmail.com
+nrich_password_textfield_valid_assert_value_1 = winteriscoming
+nrich_login_textfield_user_valid_assert_value = arihantj@sparkway.com
+nrich_login_textfield_pwd_valid_assert_value = Ongraph12341
+nrich_new_password = winteriscoming
+
+dashboard_main_nav_users_add_user_editable_row_email_assert_value =arihantj@sparkway.com
+dashboard_main_nav_users_add_user_editable_row_first_name_assert_value = arihant
+dashboard_main_nav_users_add_user_editable_row_last_name_assert_value = jain
+dashboard_main_nav_users_created_user_status_assert_value = Pending
+dashboard_main_nav_segment_name_textbox_tab_assert_value = mysegment
+dashboard_main_nav_segment_section_city_textbox_assert_value = Jaipur
+nrich_sidemenu_logout_option_text = Sign out
+
+#PRED179
+nrich_login_textfield_valid_assert_value_2 = admin@example.com
+nrich_password_textfield_valid_assert_value_2 = testadmin
+nrich_login_textfield_valid_assert_value_admin = admin@example.com
+nrich_password_textfield_valid_assert_value_admin = testadmin
+nrich_login_assert_fail_msg = text field should not be null. Please check your html structure
+nrich_dashboard_page_title_assert_value= Dashboard
+Login_Page_Url = http://localhost:9000/login
+Login_Page_Url_1 = http://localhost:9000
+
+
+
+#List Tests
+
+nrich_Name_Textfield_valid_assert_value = Test1
+dashboard_main_nav_users_created_user_status_assert1_value = complete
+nrich_login_assert1_fail_msg = text field should not be null. Please check your html structure .Apple
+
+dashboard_main_nav_users_created_user_status_assert_value = Pending
+nrich_login_assert_status_fail_msg = Status not complete or pending
+nrich_login_assert_list_fail_msg = List Not Found
+
+#PRED108
+nrich_new_password = winteriscoming
+Login_Page_Url = http://localhost:9000/login
+nrich_ivalid_page = Login page is not loaded
+nrich_invalid_dashboard_page = Present in dashboard page
+
+#admin segment check
+nrich_login_textfield_valid_assert_value_2 = admin@example.com
+nrich_password_textfield_valid_assert_value_2 = testadmin
+
+#PRED 195
+nrich_list_not_found_error_message = No list with status complete or pending found
+nrich_file_no_changed_error_message = A file is deleted even after clicking on the cancel button in pop up menu
+
+nrich_ivalid_dashboard_page = Dashboard Page should not be shown
+
