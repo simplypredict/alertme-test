@@ -31,7 +31,9 @@ public class AdminFilterReport extends SeleniumUtil {
             logger.error(e.getMessage());
         }
     }
-//[AL-25]
+
+//	[AL-25]
+
 ////    ## CTR report
 ////    1)Hit URL = http://52.91.245.79/reports/ctr .
 ////    2)Type correct publisher name on Filter TextField
@@ -91,7 +93,11 @@ public class AdminFilterReport extends SeleniumUtil {
     }
 
 
+<<<<<<< HEAD
 //[AL-25]
+=======
+//	[AL-25]
+>>>>>>> 7e655feb09659af4b53ce6a2ac543fba6ac4fc67
 ////    ## Subscriber report
 ////    1)Hit URL = http://52.91.245.79/reports/pub_subcribers .
 ////    2)Type correct publisher name on Filter TextField
@@ -149,4 +155,8 @@ public class AdminFilterReport extends SeleniumUtil {
 
 
     }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 7e655feb09659af4b53ce6a2ac543fba6ac4fc67
