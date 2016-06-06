@@ -27,11 +27,6 @@ public class AdminDownloadReports extends SeleniumUtil {
             seleniumTest_properties_HTML_ID_file = SELENIUM_PROPERTIES_HTML_ID_FILENAME;
             System.out.println("going to call seleniumTest_suite_setup");
             seleniumTest_suite_setup();
-
-
-
-
-
         } catch (Exception e) {
             logger.error(e.getMessage());
         }
@@ -40,14 +35,14 @@ public class AdminDownloadReports extends SeleniumUtil {
     public static String downloadPath = System.getProperty("user.dir");
 
 
-
-
-//    //[AL-26]
-//    ## readers theme report
-//            1)Hit URL = http://52.91.245.79/reports/reader .
-//            2)click on download report.
-//            3)verify if downloaded file is present in downloadpath.
-//            4)if not then,Test fail otherwise success
+    /**
+     *  [AL-26]
+         ## readers theme report
+         1)Hit URL = http://52.91.245.79/reports/reader .
+         2)click on download report.
+         3)verify if downloaded file is present in downloadpath.
+         4)if not then,Test fail otherwise success
+     */
     @Test(priority = TestConstants.NO_1)
     public void DownloadReaderReport() throws Exception
     {
@@ -80,18 +75,17 @@ public class AdminDownloadReports extends SeleniumUtil {
 
 
     }
-
-    //    //[AL-26]
-//    ## ctr report
-//            1)Hit URL = http://52.91.245.79/reports/ctr .
-//            2)click on download report.
-//            3)verify if downloaded file is present in downloadpath.
-//            4)if not then,Test fail otherwise success
+    /**
+     * [AL-26]
+         ## ctr report
+         1)Hit URL = http://52.91.245.79/reports/ctr .
+         2)click on download report.
+         3)verify if downloaded file is present in downloadpath.
+         4)if not then,Test fail otherwise success
+     */
     @Test(priority = TestConstants.NO_2)
     public void DownloadCTRReport() throws Exception
     {
-
-
         System.out.println("TEST: Downloading CTR report and checking its file extension");
         logger.info("TEST : Downloading CTR report and checking its file extension");
 
@@ -110,27 +104,23 @@ public class AdminDownloadReports extends SeleniumUtil {
         browser_wait(TestConstants.WAIT_3000);
         alertmeButton.click();
 
-
         //verifying downloaded file from downloadPath
         Assert.assertTrue(isFileDownloaded(downloadPath, "CtrReport.csv"), "Failed to download Expected document");
 
         browser.close();
-
-
     }
 
-
-    //    [AL-26]
-//    ## mfa report
-//            1)Hit URL = http://52.91.245.79/reports/mfa.
-//            2)click on download report.
-//            3)verify if downloaded file is present in downloadpath.
-//            4)if not then,Test fail otherwise success
+    /**
+     * [AL-26]
+       ## mfa report
+       1)Hit URL = http://52.91.245.79/reports/mfa.
+       2)click on download report.
+       3)verify if downloaded file is present in downloadpath.
+       4)if not then,Test fail otherwise success
+     */
     @Test(priority = TestConstants.NO_3)
     public void DownloadMFAReport() throws Exception
     {
-
-
         System.out.println("TEST: Downloading MFA report and checking its file extension");
         logger.info("TEST : Downloading MFA report and checking its file extension");
 
@@ -152,24 +142,22 @@ public class AdminDownloadReports extends SeleniumUtil {
 
         //verifying downloaded file from downloadPath
         Assert.assertTrue(isFileDownloaded(downloadPath, "MfaReport.csv"), "Failed to download Expected document");
-
         browser.close();
-
 
     }
 
+    /**
+     * [AL-26]
+       Subscriber report
+       1)Hit URL = http://52.91.245.79/reports/pub_subcribers.
+       2)click on download report.
+       3)verify if downloaded file is present in downloadpath.
+       4)if not then,Test fail otherwise success
+     */
 
-    //    //[AL-26]
-//    ## readers theme report
-//            1)Hit URL = http://52.91.245.79/reports/pub_subcribers.
-//            2)click on download report.
-//            3)verify if downloaded file is present in downloadpath.
-//            4)if not then,Test fail otherwise success
     @Test(priority = TestConstants.NO_4)
     public void DownloadPublisherReport() throws Exception
     {
-
-
         System.out.println("TEST: Downloading Publisher report and checking its file extension");
         logger.info("TEST : Downloading Publisher report and checking its file extension");
 
@@ -188,7 +176,6 @@ public class AdminDownloadReports extends SeleniumUtil {
         browser_wait(TestConstants.WAIT_3000);
         alertmeButton.click();
 
-
         //verifying downloaded file from downloadPath
         Assert.assertTrue(isFileDownloaded(downloadPath, "SubscriptionReport.csv"), "Failed to download Expected document");
 
@@ -198,27 +185,6 @@ public class AdminDownloadReports extends SeleniumUtil {
 
 
 
-
-
-
-
-
-
-    public boolean isFileDownloaded(String downloadPath, String fileName) {
-        boolean flag = false;
-        File dir = new File(downloadPath);
-        File[] dir_contents = dir.listFiles();
-
-        for (int i = 0; i < dir_contents.length; i++) {
-           // System.out.println(dir_contents[i].getName());
-            if (dir_contents[i].getName().equals(fileName)) {
-
-                return flag = true;
-            }
-        }
-
-        return flag;
-    }
 
 
 

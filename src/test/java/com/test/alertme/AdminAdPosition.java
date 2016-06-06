@@ -31,10 +31,13 @@ public class AdminAdPosition extends SeleniumUtil {
             logger.error(e.getMessage());
         }
     }
-/** [AL-28]
-    1)Hit url: http://52.91.245.79/email_templates/list.Click Add new button
-    2)get the number of element in DropdownListlist(select add size)
-    3)compare the name of the ad position in the dropdownlist. */
+
+    /**
+     *[AL-28]
+      1)Hit url: http://52.91.245.79/email_templates/list.Click Add new button
+      2)get the number of element in DropdownListlist(select add size)
+      3)compare the name of the ad position in the dropdownlist.
+     */
 
     @Test(priority = TestConstants.NO_1)
     public void DetermineAdPosition() throws Exception
@@ -61,7 +64,6 @@ public class AdminAdPosition extends SeleniumUtil {
         browser_wait(TestConstants.WAIT_3000);
 
         int size=selectAdSizeList.size();
-
         String arr[]=new String[5];
         arr[0] = "None Selected";
         arr[1] = "Super Leaderboard(970×90)";
@@ -71,8 +73,7 @@ public class AdminAdPosition extends SeleniumUtil {
 
         for(int i=0;i<size;i++)
         {
-           // System.out.println(selectAdSizeList.get(i).getText()+"   "+arr[i]);
-
+            Assert.assertEquals(selectAdSizeList.get(i).getText(),arr[i],"");
             //Comparing obtained adposition with hardcopy ad position
             if(selectAdSizeList.get(i).getText().equals(arr[i]))
             {

@@ -65,7 +65,7 @@ public class AdminFilterReport extends SeleniumUtil {
 
         List<WebElement> filterList = doc_list_get("alertme_report_ctr_filterlist",browser);
         browser_wait(TestConstants.WAIT_3000);
-;
+
 
         String s,x,y;
 
@@ -93,17 +93,14 @@ public class AdminFilterReport extends SeleniumUtil {
     }
 
 
-<<<<<<< HEAD
-//[AL-25]
-=======
-//	[AL-25]
->>>>>>> 7e655feb09659af4b53ce6a2ac543fba6ac4fc67
-////    ## Subscriber report
-////    1)Hit URL = http://52.91.245.79/reports/pub_subcribers .
-////    2)Type correct publisher name on Filter TextField
-////    3)check size of the list
-//      4)check the name of the publisher name in all the list
-
+/**
+ * [AL-25]
+  ## Subscriber report
+  1)Hit URL = http://52.91.245.79/reports/pub_subcribers .
+  2)Type correct publisher name on Filter TextField
+  3)check size of the list
+  4)check the name of the publisher name in all the list
+ */
     @Test(priority = TestConstants.NO_1)
     public void AdminIncorrectPublisher() throws Exception {
 
@@ -155,8 +152,5 @@ public class AdminFilterReport extends SeleniumUtil {
 
 
     }
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> 7e655feb09659af4b53ce6a2ac543fba6ac4fc67
+
