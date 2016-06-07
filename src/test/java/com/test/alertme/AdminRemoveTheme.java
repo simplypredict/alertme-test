@@ -55,7 +55,7 @@ public class AdminRemoveTheme extends SeleniumUtil {
         browser_wait(TestConstants.WAIT_2000);
         alertmeEntityList.click();
 
-        browser_wait(TestConstants.WAIT_7000);
+        browser_wait(TestConstants.WAIT_3000);
         List<WebElement> selectedList = doc_list_get("alertme_List_selectedlist_html_id",browser);
         browser_wait(TestConstants.WAIT_3000);
 
@@ -104,17 +104,10 @@ public class AdminRemoveTheme extends SeleniumUtil {
             selectedList = doc_list_get("alertme_List_selectedlist_html_id",browser);
             browser_wait(TestConstants.WAIT_2000);
 
-        //checked size
+        //checked size after removing item
          int selectListAfter=selectedList.size();
-            if((selectListBefore-selectListAfter) == (size-removeSizeBefore))
-                {
-                    System.out.println("Element Successfully dragged");
-                }
-             else
-                {
-                    Assert.fail("Elements not dragged");
-                }
-        browser.close();
+
+         Assert.assertEquals((selectListBefore-selectListAfter),(size-removeSizeBefore),"Element Not dragged");
 
     }
 

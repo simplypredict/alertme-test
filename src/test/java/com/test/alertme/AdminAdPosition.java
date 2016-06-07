@@ -73,20 +73,11 @@ public class AdminAdPosition extends SeleniumUtil {
 
         for(int i=0;i<size;i++)
         {
-            Assert.assertEquals(selectAdSizeList.get(i).getText(),arr[i],"");
             //Comparing obtained adposition with hardcopy ad position
-            if(selectAdSizeList.get(i).getText().equals(arr[i]))
-            {
-                System.out.println("Successful");
-            }
-            else
-            {
+            Assert.assertEquals(selectAdSizeList.get(i).getText(),arr[i],"");
 
-                Assert.fail("Some of the name in the list didn't match");
-            }
+
         }
-
-        browser.close();
 
     }
 

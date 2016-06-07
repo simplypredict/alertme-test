@@ -46,8 +46,6 @@ public class AdminDownloadReports extends SeleniumUtil {
     @Test(priority = TestConstants.NO_1)
     public void DownloadReaderReport() throws Exception
     {
-        //get URL
-        //browser.get("http://localhost/reports/readers");
 
         System.out.println("TEST: Downloading Readers's theme report and checking its file extension");
         logger.info("TEST : Downloading Reader's theme report and checking its file extension");
@@ -71,10 +69,8 @@ public class AdminDownloadReports extends SeleniumUtil {
         //verifying downloaded file from downloadPath
         Assert.assertTrue(isFileDownloaded(downloadPath, "ReaderTopicsReport.csv"), "Failed to download Expected document");
 
-        browser.close();
-
-
     }
+
     /**
      * [AL-26]
          ## ctr report
@@ -107,7 +103,6 @@ public class AdminDownloadReports extends SeleniumUtil {
         //verifying downloaded file from downloadPath
         Assert.assertTrue(isFileDownloaded(downloadPath, "CtrReport.csv"), "Failed to download Expected document");
 
-        browser.close();
     }
 
     /**
@@ -142,7 +137,6 @@ public class AdminDownloadReports extends SeleniumUtil {
 
         //verifying downloaded file from downloadPath
         Assert.assertTrue(isFileDownloaded(downloadPath, "MfaReport.csv"), "Failed to download Expected document");
-        browser.close();
 
     }
 
@@ -179,13 +173,7 @@ public class AdminDownloadReports extends SeleniumUtil {
         //verifying downloaded file from downloadPath
         Assert.assertTrue(isFileDownloaded(downloadPath, "SubscriptionReport.csv"), "Failed to download Expected document");
 
-        browser.close();
 
     }
-
-
-
-
-
 
 }

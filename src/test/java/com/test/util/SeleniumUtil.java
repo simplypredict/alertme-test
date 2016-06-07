@@ -161,10 +161,9 @@ public class SeleniumUtil {
     }
 
     /**
-     *
-     * @param downloadPath
-     * @param fileName
-     * @return
+     *It takes filename and downloadpath as parameter
+     * compare if file name is present in downloadpath
+     * @return True or False
      */
     public boolean isFileDownloaded(String downloadPath, String fileName) {
         boolean flag = false;
@@ -183,10 +182,10 @@ public class SeleniumUtil {
     }
 
     @AfterMethod
-   // public void nrichLogOut() {
-//       try {
-//          // browser.close();
-//       }
+    public void nrichLogOut() {
+       try {
+          browser.close();
+       }
 //            WebElement nrich_sidemenu_toggle = doc_get("nrich_side_menu_toggle_xpath", browser);
 //            browser_wait(TestConstants.WAIT_7000);
 //            Assert.assertFalse((nrich_sidemenu_toggle == null), "Side Menu Not found");
@@ -212,12 +211,12 @@ public class SeleniumUtil {
 //            browser_wait(TestConstants.WAIT_7000);
 //            logger.info("nirchLogout");
 //        }
-//        catch (Exception exception) {
-//            logger.error("" + exception);
-//            browser.close();
-//        }
-////        //browser.close();
-//   }
+        catch (Exception exception) {
+            logger.error("" + exception);
+            browser.close();
+        }
+//        //browser.close();
+   }
 
     public long getCurrentTimeStamp()
     {
