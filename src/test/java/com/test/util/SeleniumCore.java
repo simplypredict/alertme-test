@@ -25,14 +25,15 @@ import java.util.Properties;
 public class SeleniumCore {
     public static final String BROWSER,BROWSER_VERSION;
     public static final String SELENIUM_LOGIN_URL;
+    public static final String isBrowserStack;
     private static final String FIREFOX = "Firefox";
     private static final String CHROME = "Chrome";
     private static final String IE = "IE";
     private static final String SAFARI = "Safari";
     private static Properties SELENIUMTEST_PROPERTIES;
-    public static final String USERNAME = " jeff103";
-    public static final String AUTOMATE_KEY = "HJqxMp3D7DVyv9XfwBu2";
-    public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub.browserstack.com/wd/hub";
+    public static final String USERNAME = "powerranger3";
+    public static final String AUTOMATE_KEY = "s7pzKzP3UaDBsBYspBNp";
+    public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
     private static Logger logger = LoggerFactory.getLogger(SeleniumCore.class);
 
     static {
@@ -51,103 +52,146 @@ public class SeleniumCore {
             logger.debug("Exception in loading environment property file "
                     + TestConstants.SELENIUM_PROPERTIES_ENVIORNMENT_FILENAME, e);
         }
+
+
         BROWSER = getSpecificProperty(TestConstants.BROWSER);
         BROWSER_VERSION = getSpecificProperty(TestConstants.BROWSER_VERSION);
         SELENIUM_LOGIN_URL = getSpecificProperty(TestConstants.Url);
+        isBrowserStack = getSpecificProperty(TestConstants.isBrowserStack);
+
     }
+
 
     private static String getSpecificProperty(String property) {
         return (null != System.getProperty(property)) ? System.getProperty(property) :
                 SELENIUMTEST_PROPERTIES.getProperty(property);
     }
 
-    public static WebDriver getDriver() {
-        System.out.println("Inside getdriver function");
-        String runBrowser = BROWSER;
-        logger.info("current browser initialized");
-//        DesiredCapabilities caps = new DesiredCapabilities();
-//        caps.setCapability("browser", BROWSER);
-//        caps.setCapability("browser_version", BROWSER_VERSION);
-//        caps.setCapability("os", "Windows");
-//        caps.setCapability("os_version", "XP");
-//        caps.setCapability("browserstack.debug", "true");
-        WebDriver driver = null;
-//        try {
-//            driver = new RemoteWebDriver(new URL(URL), caps);
-//        } catch (MalformedURLException e) {
-//            e.printStackTrace();
-//        }
 
-        DesiredCapabilities capabilities = null;
-       ChromeOptions options = null;
-        logger.info("going to check browser");
-        System.out.println("going to check browser");
-        if (FIREFOX.equalsIgnoreCase(runBrowser)) {
-            logger.info("browser=firefox");
-            System.out.println("browser=firefox");
+    public static WebDriver getDriver() {
+        String runBrowser = BROWSER;
+        WebDriver driver = null;
+        if (isBrowserStack.equals("Yes")) {
+            System.out.println("Inside getdriver function");
+
             FirefoxProfile profile = new FirefoxProfile();
-            System.out.println("initializing properties");
-            profile.setPreference("browser.download.folderList", TestConstants.NO_2);
-            profile.setPreference("browser.download.manager.showWhenStarting", false);
-            profile.setAssumeUntrustedCertificateIssuer(false);
-            profile.setPreference("browser.download.dir", System.getProperty("user.dir"));
-            profile.setPreference("plugin.state.npseleniumdetector", 2);
             profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
                     "text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml");
 
-            System.out.println("properties initialized");
+            //profile.setPreference("browser.download.useDownloadDir", true);
+            //System.out.println(System.getProperty("user.dir")+"????????????");
+            //profile.setPreference("browser.download.useDownloadDir", true);
 
-           driver = new FirefoxDriver(profile);
+            profile.setPreference("browser.download.folderList", 0);
+            profile.setPreference("browser.download.manager.showWhenStarting", false);
+            profile.setPreference("browser.download.manager.focusWhenStarting", false);
+            profile.setPreference("browser.download.useDownloadDir", true);
+            profile.setPreference("browser.helperApps.alwaysAsk.force", false);
+            profile.setPreference("browser.download.manager.alertOnEXEOpen", false);
+            profile.setPreference("browser.download.manager.closeWhenDone", true);
+            profile.setPreference("browser.download.manager.showAlertOnComplete", false);
+            profile.setPreference("browser.download.manager.useWindow", false);
 
-            System.out.println("exiting firefox block");
-        } else if (CHROME.equalsIgnoreCase(runBrowser)) {
-            HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+
+
+
+
+            logger.info("current browser initialized");
+            DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("browser", BROWSER);
+            caps.setCapability("browser_version", BROWSER_VERSION);
+            caps.setCapability("os", "Windows");
+            caps.setCapability("os_version", "7");
+            caps.setCapability("resolution", "1024x768");
+            caps.setCapability(FirefoxDriver.PROFILE, profile);
+            caps.setCapability("browserstack.debug", "true");
+//            caps.setCapability("browser", "Chrome");
+//            caps.setCapability("browser_version", "51.0");
+//            caps.setCapability("os", "Windows");
+//            caps.setCapability("os_version", "7");
+//            caps.setCapability("resolution", "1024x768");
+
             try {
-                chromePrefs.put("profile.default_content_settings.popups", TestConstants.NO_0);
-                logger.info(System.getProperty("user.dir") + " System working dir ");
-                chromePrefs.put("download.default_directory", System.getProperty("user.dir"));
-                chromePrefs.put("plugin.state.npseleniumdetector", 2);
-                capabilities = DesiredCapabilities.chrome();
-                options = new ChromeOptions();
-            } catch (Exception e) {
-                logger.error("SeleniumCore ChromeOption Exception : " + e);
+                driver = new RemoteWebDriver(new URL(URL), caps);
+            } catch (MalformedURLException e) {
+                e.printStackTrace();
             }
-            options.setExperimentalOption("prefs", chromePrefs);
-            options.addArguments(Arrays.asList("--test-type", "--start-maximized"));
-            capabilities.setCapability(ChromeOptions.CAPABILITY, options);
-            capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
-            try {
-                driver = new RemoteWebDriver(new URL(TestConstants.REMOTEWEBDRIVER_URL + ":" + TestConstants.CHROME_PORT), capabilities);
-                System.out.println("driver initialized");
-            } catch (Exception ex) {
-                System.out.println(ex);
-                ex.printStackTrace();
-                logger.info("Malform URL exception :" + ex);
-            }
-        } else if (IE.equalsIgnoreCase(runBrowser)) {
-            capabilities = DesiredCapabilities.internetExplorer();
-            capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
-            capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
-            capabilities.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING, false);
-            capabilities.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
-            capabilities.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, false);
-            try {
-                driver = new RemoteWebDriver(new URL(TestConstants.REMOTEWEBDRIVER_URL + ":" + TestConstants.IE_PORT),
-                        capabilities);
-            } catch (Exception ex) {
-                logger.error("" + ex);
-            }
-        } else if (SAFARI.equalsIgnoreCase(runBrowser)) {
-            if (SeleniumUtil.isWindows() || SeleniumUtil.isMac()) {
-                driver = new SafariDriver();
-            } else {
-                driver = new FirefoxDriver();
-            }
+
         } else {
-            driver = new HtmlUnitDriver();
+
+            DesiredCapabilities capabilities = null;
+            ChromeOptions options = null;
+            logger.info("going to check browser");
+            System.out.println("going to check browser");
+            if (FIREFOX.equalsIgnoreCase(runBrowser)) {
+                logger.info("browser=firefox");
+                System.out.println("browser=firefox");
+                FirefoxProfile profile = new FirefoxProfile();
+                System.out.println("initializing properties");
+                profile.setPreference("browser.download.folderList", TestConstants.NO_2);
+                profile.setPreference("browser.download.manager.showWhenStarting", false);
+                profile.setAssumeUntrustedCertificateIssuer(false);
+                profile.setPreference("browser.download.dir", System.getProperty("user.dir"));
+                profile.setPreference("plugin.state.npseleniumdetector", 2);
+                profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
+                        "text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml");
+
+                System.out.println("properties initialized");
+
+                driver = new FirefoxDriver(profile);
+
+                System.out.println("exiting firefox block");
+            } else if (CHROME.equalsIgnoreCase(runBrowser)) {
+                HashMap<String, Object> chromePrefs = new HashMap<String, Object>();
+                try {
+                    chromePrefs.put("profile.default_content_settings.popups", TestConstants.NO_0);
+                    logger.info(System.getProperty("user.dir") + " System working dir ");
+                    chromePrefs.put("download.default_directory", System.getProperty("user.dir"));
+                    chromePrefs.put("plugin.state.npseleniumdetector", 2);
+                    capabilities = DesiredCapabilities.chrome();
+                    options = new ChromeOptions();
+                } catch (Exception e) {
+                    logger.error("SeleniumCore ChromeOption Exception : " + e);
+                }
+                options.setExperimentalOption("prefs", chromePrefs);
+                options.addArguments(Arrays.asList("--test-type", "--start-maximized"));
+                capabilities.setCapability(ChromeOptions.CAPABILITY, options);
+                capabilities.setCapability(CapabilityType.ACCEPT_SSL_CERTS, true);
+                try {
+                    driver = new RemoteWebDriver(new URL(TestConstants.REMOTEWEBDRIVER_URL + ":" + TestConstants.CHROME_PORT), capabilities);
+                    System.out.println("driver initialized");
+                } catch (Exception ex) {
+                    System.out.println(ex);
+                    ex.printStackTrace();
+                    logger.info("Malform URL exception :" + ex);
+                }
+            } else if (IE.equalsIgnoreCase(runBrowser)) {
+                capabilities = DesiredCapabilities.internetExplorer();
+                capabilities.setCapability(InternetExplorerDriver.IE_ENSURE_CLEAN_SESSION, true);
+                capabilities.setCapability(InternetExplorerDriver.IGNORE_ZOOM_SETTING, true);
+                capabilities.setCapability(InternetExplorerDriver.ENABLE_PERSISTENT_HOVERING, false);
+                capabilities.setCapability(InternetExplorerDriver.REQUIRE_WINDOW_FOCUS, true);
+                capabilities.setCapability(InternetExplorerDriver.UNEXPECTED_ALERT_BEHAVIOR, false);
+                try {
+                    driver = new RemoteWebDriver(new URL(TestConstants.REMOTEWEBDRIVER_URL + ":" + TestConstants.IE_PORT),
+                            capabilities);
+                } catch (Exception ex) {
+                    logger.error("" + ex);
+                }
+            } else if (SAFARI.equalsIgnoreCase(runBrowser)) {
+                if (SeleniumUtil.isWindows() || SeleniumUtil.isMac()) {
+                    driver = new SafariDriver();
+                } else {
+                    driver = new FirefoxDriver();
+                }
+            } else {
+                driver = new HtmlUnitDriver();
+            }
+            driver.manage().window().maximize();
+            System.out.println("returning driver");
         }
-        driver.manage().window().maximize();
-        System.out.println("returning driver");
-        return driver;
+
+            return driver;
+
     }
 }

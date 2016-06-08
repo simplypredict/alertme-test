@@ -5,12 +5,13 @@ public class TestConstants {
 
     public static final String NULL = null;
     public static final String Url = "Url";
+    public static final String isBrowserStack = "isBrowserStack";
     public static final String BROWSER = "BROWSER";
     public static final String REMOTEWEBDRIVER_URL = "http://127.0.0.1";
     public static final String CHROME_PORT = "9515";
     public static final String IE_PORT = "5555";
     public static final String PROPERTIES = "properties";
-    public static final String BROWSER_VERSION = "BROWER_VERSION";
+    public static final String BROWSER_VERSION = "BROWSER_VERSION";
 
     public static final int NO_0 = 0;
     public static final int NO_1 = 1;
