@@ -67,7 +67,7 @@ public class AdminFilterReport extends SeleniumUtil {
 
         List<WebElement> filterList = doc_list_get("alertme_report_ctr_filterlist",browser);
         browser_wait(TestConstants.WAIT_3000);
-        System.out.println("??????????? "+filterList.size());
+
 
         String s,actual,expected;
 
