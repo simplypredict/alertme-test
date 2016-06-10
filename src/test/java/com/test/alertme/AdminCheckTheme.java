@@ -45,7 +45,7 @@ public class AdminCheckTheme extends SeleniumUtil {
      * 4)Check if he contains "Selected Themes" and "Generated Themes".
      */
     @Test(priority = TestConstants.NO_1)
-    public void DownloadReaderReport() throws Exception {
+    public void CheckTheme() throws Exception {
 
         System.out.println("TEST: Downloading Readers's theme report and checking its file extension");
         logger.info("TEST : Downloading Reader's theme report and checking its file extension");
