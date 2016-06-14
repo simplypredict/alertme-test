@@ -77,7 +77,7 @@ public class AdminFilterReport extends SeleniumUtil {
                 actual = browser.findElement(By.xpath(s)).getText();
                 expected = seleniumTest_properties_assert_values_get("alertme_filter_Textfield_correct_Assert_values");
 
-                Assert.assertEquals(actual,expected, "");
+                Assert.assertEquals(actual.contains(expected),true, "");
 
             }
         }
