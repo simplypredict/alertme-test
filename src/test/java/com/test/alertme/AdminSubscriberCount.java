@@ -92,7 +92,10 @@ public class AdminSubscriberCount extends SeleniumUtil {
                     xpathSubscriberCount = "//*[@id='pstTable']/tbody/tr[" + i + "]/td[4]";
 
                     //shows subscriber count
-                    System.out.println("Subscriber count :"+browser.findElement(By.xpath(xpathSubscriberCount)).getText());
+                    if(browser.findElement(By.xpath(xpathSubscriberCount)).getText() == null)
+                    {
+                     Assert.fail("no count is showing");
+                    }
                     break;
                 }
 

@@ -47,7 +47,7 @@ public class AdminRemoveTheme extends SeleniumUtil {
 
         //Click on Entity on DashBoard
         WebElement alertmeEntity = doc_get("alertme_Dashboard_Entity_html_id",browser);
-        browser_wait(TestConstants.WAIT_2000);
+        browser_wait(TestConstants.WAIT_3000);
         alertmeEntity.click();
 
         //click on List
@@ -89,7 +89,7 @@ public class AdminRemoveTheme extends SeleniumUtil {
                 browser_wait(TestConstants.WAIT_2000);
             //destination element
                 destinaton=doc_get("alertme_List_destination_html_id",browser);
-                browser_wait(TestConstants.WAIT_2000);
+                browser_wait(TestConstants.WAIT_3000);
 
             //dragged to selected list to removed list
                 action.dragAndDrop(source,destinaton).perform();

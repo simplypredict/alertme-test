@@ -51,7 +51,6 @@ public class AdminFilterReport extends SeleniumUtil {
         //click on report
         WebElement alertmeReport = doc_get("alertme_Dashboard_report_html_id",browser);
         browser_wait(TestConstants.WAIT_3000);
-        System.out.println(alertmeReport.isDisplayed()+"????????????");
         alertmeReport.click();
 
         //click on ctr
@@ -63,24 +62,42 @@ public class AdminFilterReport extends SeleniumUtil {
         WebElement alertmeFilter =doc_get("alertme_report_filter_Textfield_html_id",browser);
         browser_wait(TestConstants.WAIT_3000);
         alertmeFilter.sendKeys(seleniumTest_properties_assert_values_get("alertme_filter_Textfield_correct_Assert_values"));
+
         browser_wait(TestConstants.WAIT_7000);
+        browser_wait(TestConstants.WAIT_3000);
 
         List<WebElement> filterList = doc_list_get("alertme_report_ctr_filterlist",browser);
         browser_wait(TestConstants.WAIT_3000);
+        int size = 0;
+
+        for(WebElement webElement: filterList){
+            if(webElement.isDisplayed()){
+                size++;
+            }
+
+        }
+
+
 
 
         String s,actual,expected;
 
-        if(filterList.size() > 0) {
-            for (int i = 1; i <= filterList.size(); i++) {
-                s = "//*[@id='publishersTable']/tbody/tr[" + i + "]/td[2]";
-                actual = browser.findElement(By.xpath(s)).getText();
+
+
+        if(size>0)
+        {
+            for (WebElement webElement: filterList) {
+                actual=webElement.findElement(By.xpath("//td[2]")).getText();
+
+
                 expected = seleniumTest_properties_assert_values_get("alertme_filter_Textfield_correct_Assert_values");
 
-                Assert.assertEquals(actual.contains(expected),true, "");
+                Assert.assertEquals(actual.contains(expected),true, "Publisher name is different in the current list");
+
 
             }
         }
+
         else{
             Assert.fail("No list is showing");
         }

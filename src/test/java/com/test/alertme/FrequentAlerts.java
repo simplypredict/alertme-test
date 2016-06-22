@@ -100,6 +100,7 @@ public class FrequentAlerts extends SeleniumUtil {
 
                 xpathAlertCount = "//*[@id='alertsTable']/tbody/tr["+i+"]/td[3]";
                 alertCountValue = browser.findElement(By.xpath(xpathAlertCount)).getText();
+
                 //checking AlertCount value according to each publisher
                 Assert.assertNotNull(alertCountValue,"Alertcount is null");
 

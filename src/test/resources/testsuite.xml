@@ -6,9 +6,12 @@
 
             <class name="com.test.alertme.AdminRemoveTheme"></class>
             <class name="com.test.alertme.AdminAdPosition"></class>
-            <class name="com.test.alertme.AdminDownloadReports"></class>
             <class name="com.test.alertme.AdminFilterReport"></class>
-            
+            <class name="com.test.alertme.AdminCheckTheme"></class>
+            <class name="com.test.alertme.AdminSubscriberCount"></class>
+            <class name="com.test.alertme.FrequentAlerts"></class>
+            <class name="com.test.alertme.AdminDownloadReports"></class>
+            <class name="com.test.alertme.AdminModifyTheme"></class>
 
         </classes>
     </test>

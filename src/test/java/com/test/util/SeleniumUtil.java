@@ -184,7 +184,8 @@ public class SeleniumUtil {
     @AfterMethod
     public void nrichLogOut() {
        try {
-          browser.close();
+
+          browser.quit();
        }
 //            WebElement nrich_sidemenu_toggle = doc_get("nrich_side_menu_toggle_xpath", browser);
 //            browser_wait(TestConstants.WAIT_7000);
@@ -213,9 +214,9 @@ public class SeleniumUtil {
 //        }
         catch (Exception exception) {
             logger.error("" + exception);
-            browser.close();
+
         }
-//        //browser.close();
+
    }
 
     public long getCurrentTimeStamp()
