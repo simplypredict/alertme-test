@@ -33,7 +33,7 @@ public class FrequentAlerts extends SeleniumUtil {
     }
 
     /**[AL-22]
-     * Hit  URL http://52.91.245.79/users/dashboard
+     * Login as an admin
      * Check if Dashboard is showing Total AlertCount for all publisher
      * Clicking on the AlertCount Icon
      * Checking if MFA contains column named as "PublisherName" and "AlertCount"
@@ -48,6 +48,9 @@ public class FrequentAlerts extends SeleniumUtil {
         System.out.println("TEST: Display Total Alerts for all publisher as well as per publisher");
         logger.info("TEST : Display Total Alerts for all publisher as well as per publisher");
 
+        browser_wait(TestConstants.WAIT_2000);
+        //Login as an admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
         browser_wait(TestConstants.WAIT_3000);
 
         //obtaining Total number of Alerts from all the publisher on Dashboard

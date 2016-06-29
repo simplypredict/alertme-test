@@ -36,17 +36,24 @@ public class AdminSubscriberCount extends SeleniumUtil {
     /**
      * [AL-24]
      ## Subscriber report
-     1)Click on reports on dashboard
-     2)Click on subscriber
-     3)Type publisher name of filter
-     4)check the size of the list
-     5)check subscriber count.
+     1)Login as an admin
+     2)Click on reports on dashboard
+     3)Click on subscriber
+     4)Type publisher name of filter
+     5)check the size of the list
+     6)check subscriber count.
      */
     @Test(priority = TestConstants.NO_2)
     public void AdminSubscriberFilter() throws Exception {
 
         System.out.println("TEST: Filtering report with correct publisher name in subscribers");
         logger.info("TEST : Filetering report with correct publisher name in subscribers");
+
+
+        browser_wait(TestConstants.WAIT_2000);
+        //Login as an admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+        browser_wait(TestConstants.WAIT_3000);
 
 
         //click report

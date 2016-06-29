@@ -31,8 +31,8 @@ public class SeleniumCore {
     private static final String IE = "IE";
     private static final String SAFARI = "Safari";
     private static Properties SELENIUMTEST_PROPERTIES;
-    public static final String USERNAME = "jeff103";
-    public static final String AUTOMATE_KEY = "HJqxMp3D7DVyv9XfwBu2";
+    public static final String USERNAME = "powerranger3";
+    public static final String AUTOMATE_KEY = "s7pzKzP3UaDBsBYspBNp";
     public static final String URL = "https://" + USERNAME + ":" + AUTOMATE_KEY + "@hub-cloud.browserstack.com/wd/hub";
     private static Logger logger = LoggerFactory.getLogger(SeleniumCore.class);
 
@@ -68,17 +68,16 @@ public class SeleniumCore {
     }
 
 
-    public static WebDriver getDriver() {
+    public static WebDriver getDriver() throws Exception {
         String runBrowser = BROWSER;
         WebDriver driver = null;
         if (isBrowserStack.equals("Yes")) {
             System.out.println("Inside getdriver function");
 
+
             FirefoxProfile profile = new FirefoxProfile();
             profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
                     "text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml");
-
-
             profile.setPreference("browser.download.folderList", 0);
             profile.setPreference("browser.download.manager.showWhenStarting", false);
             profile.setPreference("browser.download.manager.focusWhenStarting", false);
@@ -91,17 +90,16 @@ public class SeleniumCore {
 
 
 
-
-
 //            logger.info("current browser initialized");
             DesiredCapabilities caps = new DesiredCapabilities();
+            caps.setCapability("browserstack.debug", "true");
             caps.setCapability("browser", BROWSER);
             caps.setCapability("browser_version", BROWSER_VERSION);
             caps.setCapability("os", "Windows");
             caps.setCapability("os_version", "7");
             caps.setCapability("resolution", "1024x768");
             caps.setCapability(FirefoxDriver.PROFILE, profile);
-            caps.setCapability("browserstack.debug", "true");
+
 //            caps.setCapability("browser", "Chrome");
 //            caps.setCapability("browser_version", "46.0");
 //            caps.setCapability("os", "Windows");

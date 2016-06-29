@@ -34,25 +34,34 @@ public class AdminAdPosition extends SeleniumUtil {
 
     /**
      *[AL-28]
-      1)Hit url: http://52.91.245.79/email_templates/list.Click Add new button
-      2)get the number of element in DropdownListlist(select add size)
-      3)compare the name of the ad position in the dropdownlist.
+     * 1)Login with admin
+       2)Click email Tempelate List.
+       3)Click Add new button
+       4)get the number of element in DropdownListlist(select add size)
+       5)compare the name of the ad position in the dropdownlist.
      */
 
     @Test(priority = TestConstants.NO_1)
     public void DetermineAdPosition() throws Exception
     {
-        System.out.println("TEST: cheching size and name of ad position");
+        System.out.println("TEST: checking size and name of ad position");
         logger.info("TEST : checking size and name of ad position");
+
+        browser_wait(TestConstants.WAIT_2000);
+
+        //Login as admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+
+        browser_wait(TestConstants.WAIT_3000);
 
         //Click on EmailTempelate on DashBoard
         WebElement alertmeEmail =doc_get("alertme_Dashboard_EmailTempelate_html_id",browser);
-        browser_wait(TestConstants.WAIT_2000);
+        browser_wait(TestConstants.WAIT_3000);
         alertmeEmail.click();
 
         //click on Add new button
         WebElement addNewButton = doc_get("alertme_EmailTempelates_AddNew_html_id",browser);
-        browser_wait(TestConstants.WAIT_2000);
+        browser_wait(TestConstants.WAIT_3000);
         addNewButton.click();
 
         //Click on select add size

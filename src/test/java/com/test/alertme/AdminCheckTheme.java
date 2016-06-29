@@ -9,6 +9,7 @@ import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 import java.util.List;
 
@@ -39,16 +40,27 @@ public class AdminCheckTheme extends SeleniumUtil {
     /**
      * [AL-20]
      * ## readers theme report
-     * 1)Click report->readers theme .
-     * 2)check size of the list
-     * 3)pick 1st Reader in the List.
-     * 4)Check if he contains "Selected Themes" and "Generated Themes".
+     * 1)Login as an admin
+     * 2)Click report->readers theme .
+     * 3)check size of the list
+     * 4)pick 1st Reader in the List.
+     * 5)Check if he contains "Selected Themes" and "Generated Themes".
      */
     @Test(priority = TestConstants.NO_1)
     public void CheckTheme() throws Exception {
 
         System.out.println("TEST: Downloading Readers's theme report and checking its file extension");
         logger.info("TEST : Downloading Reader's theme report and checking its file extension");
+
+
+        browser_wait(TestConstants.WAIT_2000);
+
+        //Login as admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+        browser_wait(TestConstants.WAIT_3000);
+
+
+
 
         //click on report
         WebElement alertmeReport = doc_get("alertme_Dashboard_report_html_id", browser);
@@ -76,6 +88,7 @@ public class AdminCheckTheme extends SeleniumUtil {
         List<WebElement> themeList = doc_list_get("alertme_report_Theme_html_id",browser);
         browser_wait(TestConstants.WAIT_3000);
         int themesize = themeList.size();
+        System.out.println("ThemeSize is "+themesize);
 
         String themeXpath;
         String isSelected = "NO";
@@ -83,7 +96,7 @@ public class AdminCheckTheme extends SeleniumUtil {
 
         for(int i=0;i<themesize;i++)
         {
-            themeXpath = "//*[@id='topicsTable']/tbody/tr/td[3]/p["+(i+1)+"]";
+            themeXpath = "//*[@id='topicsTable']/tbody/tr/td[5]/p["+(i+1)+"]";
             String themeName = browser.findElement(By.xpath(themeXpath)).getText();
 
             if(themeName.indexOf("Selected") != -1)

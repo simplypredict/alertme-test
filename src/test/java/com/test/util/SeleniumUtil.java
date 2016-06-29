@@ -2,6 +2,7 @@ package com.test.util;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebDriverException;
 import org.openqa.selenium.WebElement;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -57,7 +58,12 @@ public class SeleniumUtil {
             IOException, InterruptedException {
 
         System.out.println("inside seleniumTest_suite_properties_initialize\ngoing to call getdriver");
-        browser = SeleniumCore.getDriver();
+        try{
+            browser = SeleniumCore.getDriver();
+        }
+        catch (Exception e){
+           // e.printStackTrace();
+        }
         logger.info("Loading Driver for the browser");
         logger.info("Fetching the UUID of the Device ");
         String target = SeleniumCore.SELENIUM_LOGIN_URL;
@@ -146,17 +152,23 @@ public class SeleniumUtil {
      */
     public void sparkWayLogin(String userName, String password) {
 
-        WebElement nrichLoginTextField=doc_get("nrich_login_textfield_html_id", browser);
-        browser_wait(TestConstants.WAIT_2000);
-        nrichLoginTextField.sendKeys(userName);
 
-        WebElement nrichPwdTextField=doc_get("nrich_password_textfield_html_id", browser);
-        browser_wait(TestConstants.WAIT_2000);
-        nrichPwdTextField.sendKeys(password);
 
-        WebElement nrichLoginButton=doc_get("nrich_login_button_html_id", browser);
+        WebElement alertmeLogin=doc_get("alertme_Login_html_id", browser);
         browser_wait(TestConstants.WAIT_2000);
-        nrichLoginButton.click();
+        alertmeLogin.click();
+
+        WebElement alertmeLoginTextField=doc_get("alertme_Login_textfield_html_id", browser);
+        browser_wait(TestConstants.WAIT_2000);
+        alertmeLoginTextField.sendKeys(userName);
+
+        WebElement alertmePwdTextField=doc_get("alertme_Login_password_html_id", browser);
+        browser_wait(TestConstants.WAIT_2000);
+        alertmePwdTextField.sendKeys(password);
+
+        WebElement alertmeLoginButton=doc_get("alertme_Login_button_html_id", browser);
+        browser_wait(TestConstants.WAIT_2000);
+        alertmeLoginButton.click();
         browser_wait(TestConstants.WAIT_3000);
     }
 
@@ -182,7 +194,7 @@ public class SeleniumUtil {
     }
 
     @AfterMethod
-    public void nrichLogOut() {
+    public void alertmeLogOut() {
        try {
 
           browser.quit();

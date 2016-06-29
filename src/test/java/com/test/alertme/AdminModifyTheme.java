@@ -38,6 +38,7 @@ public class AdminModifyTheme extends SeleniumUtil {
 
     /**
      * [AL-29]
+     *Login as an admin
      1)click themes->List on dashboard
      2)press find button on select publisher
      3)check size of the list
@@ -53,6 +54,12 @@ public class AdminModifyTheme extends SeleniumUtil {
 
         System.out.println("TEST: Check if he contains Selected Themes and Generated Themes");
         logger.info("TEST : Check if he contains Selected Themes and Generated Themes");
+
+
+        browser_wait(TestConstants.WAIT_2000);
+        //Login as an admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+        browser_wait(TestConstants.WAIT_3000);
 
         //click on Theme
         WebElement alertmeReport = doc_get("alertme_Dashboard_Theme_html_id", browser);

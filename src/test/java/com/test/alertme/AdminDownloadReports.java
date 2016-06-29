@@ -38,7 +38,8 @@ public class AdminDownloadReports extends SeleniumUtil {
     /**
      *  [AL-26]
          ## readers theme report
-         1)Hit URL = http://52.91.245.79/reports/reader .
+         1)Login as an admin
+         2)Click on Report-->reader.
          2)click on download report.
          3)verify if downloaded file is present in downloadpath.
          4)if not then,Test fail otherwise success
@@ -49,6 +50,11 @@ public class AdminDownloadReports extends SeleniumUtil {
 
         System.out.println("TEST: Downloading Readers's theme report and checking its file extension");
         logger.info("TEST : Downloading Reader's theme report and checking its file extension");
+
+        browser_wait(TestConstants.WAIT_2000);
+        //Login as an admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+        browser_wait(TestConstants.WAIT_3000);
 
         //click on report
         WebElement alertmeReport = doc_get("alertme_Dashboard_report_html_id",browser);
@@ -74,7 +80,8 @@ public class AdminDownloadReports extends SeleniumUtil {
     /**
      * [AL-26]
          ## ctr report
-         1)Hit URL = http://52.91.245.79/reports/ctr .
+         1)Login as an admin
+         2)Click Report-->CTR
          2)click on download report.
          3)verify if downloaded file is present in downloadpath.
          4)if not then,Test fail otherwise success
@@ -84,6 +91,11 @@ public class AdminDownloadReports extends SeleniumUtil {
     {
         System.out.println("TEST: Downloading CTR report and checking its file extension");
         logger.info("TEST : Downloading CTR report and checking its file extension");
+
+        browser_wait(TestConstants.WAIT_2000);
+        //Login as an admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+        browser_wait(TestConstants.WAIT_3000);
 
         //click on report
         WebElement alertmeReport = doc_get("alertme_Dashboard_report_html_id",browser);
@@ -108,7 +120,8 @@ public class AdminDownloadReports extends SeleniumUtil {
     /**
      * [AL-26]
        ## mfa report
-       1)Hit URL = http://52.91.245.79/reports/mfa.
+       1)Login as an admin
+       2)Click MFA report on dashboard
        2)click on download report.
        3)verify if downloaded file is present in downloadpath.
        4)if not then,Test fail otherwise success
@@ -118,6 +131,13 @@ public class AdminDownloadReports extends SeleniumUtil {
     {
         System.out.println("TEST: Downloading MFA report and checking its file extension");
         logger.info("TEST : Downloading MFA report and checking its file extension");
+
+
+        browser_wait(TestConstants.WAIT_2000);
+        //Login as an admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+        browser_wait(TestConstants.WAIT_3000);
+
 
         //click on report
         WebElement alertmeReport = doc_get("alertme_Dashboard_report_html_id",browser);
@@ -143,7 +163,8 @@ public class AdminDownloadReports extends SeleniumUtil {
     /**
      * [AL-26]
        Subscriber report
-       1)Hit URL = http://52.91.245.79/reports/pub_subcribers.
+       1)Login as admin
+       2)Click on report-->subscribers.
        2)click on download report.
        3)verify if downloaded file is present in downloadpath.
        4)if not then,Test fail otherwise success
@@ -154,6 +175,11 @@ public class AdminDownloadReports extends SeleniumUtil {
     {
         System.out.println("TEST: Downloading Publisher report and checking its file extension");
         logger.info("TEST : Downloading Publisher report and checking its file extension");
+
+        browser_wait(TestConstants.WAIT_2000);
+        //Login as an admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+        browser_wait(TestConstants.WAIT_3000);
 
         //click on report
         WebElement alertmeReport = doc_get("alertme_Dashboard_report_html_id",browser);

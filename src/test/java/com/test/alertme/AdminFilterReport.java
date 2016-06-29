@@ -35,10 +35,11 @@ public class AdminFilterReport extends SeleniumUtil {
     /**
      * [AL-25]
      ## CTR report
-     1)click report-CTR
-     2)Type publisher name on Filter TextField
-     3)check size of the list
-     4)check the name of the publisher in all the list
+     1)Login as an admin
+     2)click report-CTR
+     3)Type publisher name on Filter TextField
+     4)check size of the list
+     5)check the name of the publisher in all the list
      */
 
     @Test(priority = TestConstants.NO_1)
@@ -48,6 +49,11 @@ public class AdminFilterReport extends SeleniumUtil {
         logger.info("TEST : Filetering report with correct publisher name in ctr");
 
         browser_wait(TestConstants.WAIT_2000);
+        //Login as an admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+        browser_wait(TestConstants.WAIT_3000);
+
+
         //click on report
         WebElement alertmeReport = doc_get("alertme_Dashboard_report_html_id",browser);
         browser_wait(TestConstants.WAIT_3000);
@@ -70,14 +76,16 @@ public class AdminFilterReport extends SeleniumUtil {
         browser_wait(TestConstants.WAIT_3000);
         int size = 0;
 
+
         for(WebElement webElement: filterList){
+
             if(webElement.isDisplayed()){
                 size++;
             }
 
         }
 
-
+        System.out.println("Size of the List "+size);
 
 
         String s,actual,expected;

@@ -34,16 +34,23 @@ public class AdminRemoveTheme extends SeleniumUtil {
 
     /**
      * [AL-72] steps:
-     1). There is two section showing Selected and Removed.
-     2). Get the no of element in Selected section and removed section.
-     3). Pick one item from selected and drop it into removed.
-     4). Check again the no of element in selected and removed section.
+     * Login as an admin
+     1). Click on Entity-->List
+     2). There is two section showing Selected and Removed.
+     3). Get the no of element in Selected section and removed section.
+     4). Pick one item from selected and drop it into removed.
+     5). Check again the no of element in selected and removed section.
      There should be one item less in selected section and one should be increased in Removed section.
      */
     @Test(priority = TestConstants.NO_1)
     public void AdminRemoveTheme() throws Exception {
         System.out.println("TEST: Removing themes from the list");
         logger.info("TEST : Removing themes from the list");
+
+        browser_wait(TestConstants.WAIT_2000);
+        //Login as an admin
+        sparkWayLogin(seleniumTest_properties_assert_values_get("alertme_adminlogin_textfield_Assert_values"),seleniumTest_properties_assert_values_get("alertme_adminlogin_password_Assert_values"));
+        browser_wait(TestConstants.WAIT_3000);
 
         //Click on Entity on DashBoard
         WebElement alertmeEntity = doc_get("alertme_Dashboard_Entity_html_id",browser);
