@@ -62,7 +62,7 @@ public class SeleniumUtil {
             browser = SeleniumCore.getDriver();
         }
         catch (Exception e){
-           // e.printStackTrace();
+            Assert.fail("Automation has been expired");
         }
         logger.info("Loading Driver for the browser");
         logger.info("Fetching the UUID of the Device ");
