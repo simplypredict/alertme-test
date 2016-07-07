@@ -73,7 +73,7 @@ public class AdminDownloadReports extends SeleniumUtil {
 
 
         //verifying downloaded file from downloadPath
-        Assert.assertTrue(isFileDownloaded(downloadPath, "ReaderTopicsReport.csv"), "Failed to download Expected document");
+        Assert.assertTrue(isFileDownloaded(downloadPath, "readers_topics.csv"), "Failed to download Expected document");
 
     }
 
