@@ -1,6 +1,7 @@
 package com.test.alertme;
 import com.test.util.SeleniumUtil;
 import com.test.util.TestConstants;
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
@@ -91,7 +92,70 @@ public class AdminPublisherControl extends SeleniumUtil {
         browser_wait(TestConstants.WAIT_2000);
 
 
+        //Click on submit button
+        WebElement submitButton = doc_get("alertme_Dashboard_AddPublisher_Submit_html_id",browser);
+        browser_wait(TestConstants.WAIT_2000);
+        submitButton.click();
+        browser_wait(TestConstants.WAIT_7000);
 
+        //check whether the joint name is in the list
+        List<WebElement> userList = doc_list_get("alertme_Dashboard_AddPublisher_List_html_id",browser);
+        browser_wait(TestConstants.WAIT_2000);
+        Boolean check = false;
+        System.out.println("+++++++++++++"+userList.size()+"+++++++++++");
+        int i;
+        for(i = 0;i<userList.size();i++)
+        {
+            String s = userList.get(i).getText();
+            if( s.contains(email) && s.contains(seleniumTest_properties_assert_values_get("alertme_publisher_name_assert_value")))
+            {
+                check = true;
+                break;
+            }
+        }
+        System.out.println(userList.get(i).getText());
+        if (check == false)
+        {
+            Assert.fail("no user created");
+        }
+
+        //Edit a user
+        browser_wait(TestConstants.WAIT_2000);
+        i++;
+        String edit = "html/body/div/div/div[2]/div[1]/table/tbody/tr["+i+"]/td[6]/a[1]";
+        System.out.println(edit);
+        WebElement editButton = browser.findElement(By.xpath(edit));
+        browser_wait(TestConstants.WAIT_2000);
+        editButton.click();
+        browser_wait(TestConstants.WAIT_2000);
+        WebElement checkBox1 = doc_get("alertme_Dashboard_AddPublisher_CheckBox1_html_id",browser);
+        checkBox1.click();
+        browser_wait(TestConstants.WAIT_2000);
+        WebElement checkBox2 = doc_get("alertme_Dashboard_AddPublisher_CheckBox2_html_id",browser);
+        checkBox2.click();
+        browser_wait(TestConstants.WAIT_2000);
+        WebElement submitButtonEditPage = doc_get("alertme_Dashboard_AddPublisher_SubmitEditPage_html_id",browser);
+        submitButtonEditPage.click();
+        browser_wait(TestConstants.WAIT_2000);
+
+        //Delete a user
+        browser_wait(TestConstants.WAIT_7000);
+        int before = userList.size();
+        String del = "html/body/div/div/div[2]/div[1]/table/tbody/tr["+i+"]/td[6]/a[2]";
+        System.out.println(del);
+        WebElement deleteButton = browser.findElement(By.xpath(del));
+        deleteButton.click();
+        browser_wait(TestConstants.WAIT_2000);
+
+        Alert alert = browser.switchTo().alert();
+        System.out.println(alert.getText());
+        alert.accept();
+
+        browser_wait(TestConstants.WAIT_7000);
+        int after = userList.size();
+        System.out.println(before+"*************"+after);
+        if(after != before)
+            Assert.fail("user not deleted");
 
     }
 
