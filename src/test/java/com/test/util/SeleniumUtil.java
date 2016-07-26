@@ -1,12 +1,9 @@
 package com.test.util;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebDriverException;
-import org.openqa.selenium.WebElement;
+
+import org.openqa.selenium.*;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 
 import java.io.File;
@@ -14,7 +11,6 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.MalformedURLException;
 import java.util.Date;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Properties;
 
@@ -62,13 +58,17 @@ public class SeleniumUtil {
             browser = SeleniumCore.getDriver();
         }
         catch (Exception e){
-            Assert.fail("Automation has been expired");
+            e.printStackTrace();
         }
         logger.info("Loading Driver for the browser");
         logger.info("Fetching the UUID of the Device ");
         String target = SeleniumCore.SELENIUM_LOGIN_URL;
         System.out.println("Opening URL = " + target);
+
+
         browser.get(target);
+
+
         try {
             seleniumTest_properties_assert_values = new Properties();
             seleniumTest_properties_html_id = new Properties();

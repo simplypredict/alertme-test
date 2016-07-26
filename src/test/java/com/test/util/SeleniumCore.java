@@ -69,6 +69,7 @@ public class SeleniumCore {
 
 
     public static WebDriver getDriver() throws Exception {
+
         String runBrowser = BROWSER;
         WebDriver driver = null;
         if (isBrowserStack.equals("Yes")) {
@@ -90,6 +91,7 @@ public class SeleniumCore {
 
 
 
+
 //            logger.info("current browser initialized");
             DesiredCapabilities caps = new DesiredCapabilities();
             caps.setCapability("browserstack.debug", "true");
@@ -97,7 +99,7 @@ public class SeleniumCore {
             caps.setCapability("browser_version", BROWSER_VERSION);
             caps.setCapability("os", "Windows");
             caps.setCapability("os_version", "7");
-            caps.setCapability("resolution", "1024x768");
+            caps.setCapability("resolution", "1366x768");
             caps.setCapability(FirefoxDriver.PROFILE, profile);
 
 //            caps.setCapability("browser", "Chrome");
@@ -130,6 +132,7 @@ public class SeleniumCore {
                 profile.setPreference("plugin.state.npseleniumdetector", 2);
                 profile.setPreference("browser.helperApps.neverAsk.saveToDisk",
                         "text/csv,application/x-msexcel,application/excel,application/x-excel,application/vnd.ms-excel,image/png,image/jpeg,text/html,text/plain,application/msword,application/xml");
+
 
                 System.out.println("properties initialized");
 

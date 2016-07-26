@@ -35,6 +35,18 @@ public class AdminPublisherControl extends SeleniumUtil {
         }
     }
 
+    /**[AL-42]
+     * Login As an Admin
+     * Click on Publishers on Side Menu Bar
+     * Click on Add Button
+     * Fill all the details e.g. Email,Name,Password
+     * Click on submit button.
+     * Check if publisher added or not.(Read)
+     * Edit User
+     * Click on submit button after editing
+     * Click on trash icon to delete a  publisher.
+     * Check if deleted.
+     */
     @Test(priority = TestConstants.NO_1)
     public void adminpublishercontrol() throws IOException
     {
