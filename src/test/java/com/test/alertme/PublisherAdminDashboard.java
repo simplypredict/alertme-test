@@ -52,8 +52,8 @@ public class PublisherAdminDashboard extends SeleniumUtil {
 
 
 
-        System.out.println("TEST: Display Total Alerts for all publisher as well as per publisher");
-        logger.info("TEST : Display Total Alerts for all publisher as well as per publisher");
+        System.out.println("TEST: AlertCount on publisher Admin");
+        logger.info("TEST : AlertCount on publisher Admin");
 
         browser_wait(TestConstants.WAIT_2000);
 

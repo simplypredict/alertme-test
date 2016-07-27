@@ -12,6 +12,10 @@
             <class name="com.test.alertme.FrequentAlerts"></class>
             <class name="com.test.alertme.AdminDownloadReports"></class>
             <class name="com.test.alertme.AdminModifyTheme"></class>
+            <class name="com.test.alertme.AdminPublisherControl"></class>
+            <class name="com.test.alertme.LogoRedirect"></class>
+            <class name="com.test.alertme.PublisherAdminDashboard"></class>
+
 
         </classes>
     </test>
