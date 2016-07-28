@@ -15,6 +15,7 @@
             <class name="com.test.alertme.AdminPublisherControl"></class>
             <class name="com.test.alertme.LogoRedirect"></class>
             <class name="com.test.alertme.PublisherAdminDashboard"></class>
+            <class name="com.test.alertme.ManageThemes"></class>
 
 
         </classes>
