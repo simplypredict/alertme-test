@@ -73,33 +73,38 @@ public class PublisherAdminDashboard extends SeleniumUtil {
         browser_wait(TestConstants.WAIT_3000);
         alertmeReaders.click();
 
-        //Type publisher name on filter Textfield
-        WebElement alertmeFilter =doc_get("alertme_Reports_mfa_filter_TextField_html_id",browser);
-        browser_wait(TestConstants.WAIT_3000);
-        alertmeFilter.sendKeys(seleniumTest_properties_assert_values_get("alertme_mfa_filter_Textfield_correct_Assert_values"));
 
-
-        browser_wait(TestConstants.WAIT_3000);
+       browser_wait(TestConstants.WAIT_3000);
 
         //checking if there is no publisher available
 
         List<WebElement> mfaList = doc_list_get("alertme_mfa_filterList_html_id",browser);
         browser_wait(TestConstants.WAIT_3000);
-        int mfaSize = 0;
+        int mfaSize = 0,i=0;
         mfaSize= mfaList.size();
+        boolean check = false;
 
-        String xpathPublisherName,xpathAlertCount;
-        String alertCountValue,publisherNameValue;
+        for(i=1;i<mfaSize;i++)
+        {
+            if(mfaList.get(i).getText().equals("jenny"))
+            {
+                check = true;
+                break;
+            }
+        }
+
+
+
 
         int sum=0;
 
         if(mfaSize == 0)
             Assert.fail("There is no publisher regarding your search");
 
-        //Counting total AlertCount of publisher.
 
-        WebElement AlertCount = doc_get("alertme_publisher_AlertCount_value_html_id",browser);
-        browser_wait(TestConstants.WAIT_2000);
+
+        String xpathAlertCount = "html/body/div[1]/div/div[2]/div[1]/table/tbody/tr["+i+"]/td[3]";
+        WebElement AlertCount = browser.findElement(By.xpath(xpathAlertCount));
 
         String ToCheckvalue = AlertCount.getText();
 
@@ -116,7 +121,7 @@ public class PublisherAdminDashboard extends SeleniumUtil {
         WebElement logoutButton = doc_get("alertme_logout_button_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
         logoutButton.click();
-        browser_wait(TestConstants.WAIT_1000);
+        browser_wait(TestConstants.WAIT_7000);
 
         browser_wait(TestConstants.WAIT_2000);
 

@@ -35,41 +35,59 @@ public class ManageThemes extends SeleniumUtil {
         }
     }
 
+
+    /**AL-10
+     * Hit URL http://52.91.245.79/#/manage_themes
+     * Enter Email
+     * Enter Password
+     * Click submit button
+     * Obtain the theme list size
+     * Uncheck a theme
+     * Again obtain the list size
+     * check if size is less than previous size of theme list
+     */
     @Test(priority = TestConstants.NO_1)
     public void manageThemesWithEmail() throws IOException
     {
 
         browser_wait(TestConstants.WAIT_3000);
 
+        //Enter email of reader in manage themes
         WebElement emailTextField = doc_get("alertme_manageThemes_email_phone_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
         emailTextField.sendKeys(seleniumTest_properties_assert_values_get("alertme_managethemes_email_Assert_value"));
         browser_wait(TestConstants.WAIT_1000);
 
-
+        //Enter password
         WebElement password = doc_get("alertme_manageThemes_password_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
         password.sendKeys(seleniumTest_properties_assert_values_get("alertme_managethemes_password_Assert_value"));
         browser_wait(TestConstants.WAIT_1000);
 
+        //Click submit button
         WebElement submitButton = doc_get("alertme_managethemes_submit_button_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
         submitButton.click();
         browser_wait(TestConstants.WAIT_7000);
 
+        //obtain the List of Themes
         List<WebElement>  themeList = doc_list_get("alertme_managethemes_ListofThemes_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
+
 
         int sizeOfThemes = themeList.size();
         System.out.println("Size Of Themes "+sizeOfThemes);
 
+        //Check if theme is available or not
         if(sizeOfThemes > 0)
         {
+            //uncheck 1st theme
             WebElement themeCheckBox = doc_get("alertme_managethemes_Theme_checkbox_html_id",browser);
             browser_wait(TestConstants.WAIT_2000);
             themeCheckBox.click();
             browser_wait(TestConstants.WAIT_2000);
 
+            //Click on Update button
             WebElement updateButton = doc_get("alertme_managethemes_Update_button_html_id",browser);
             browser_wait(TestConstants.WAIT_2000);
             updateButton.click();
@@ -85,12 +103,14 @@ public class ManageThemes extends SeleniumUtil {
         browser_wait(TestConstants.WAIT_3000);
 
 
+        //Again check the theme size
         themeList = doc_list_get("alertme_managethemes_ListofThemes_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
         int checkSize = themeList.size();
 
         System.out.println("CheckSize "+checkSize);
 
+        //Theme size should decrease by one.
         Assert.assertEquals(checkSize,sizeOfThemes-1,"Error! Theme has not been updated");
 
 
@@ -99,43 +119,58 @@ public class ManageThemes extends SeleniumUtil {
 
 
 
-
-
+    /**AL-10
+     * Hit URL http://52.91.245.79/#/manage_themes
+     * Enter Phone
+     * Enter Password
+     * Click submit button
+     * Obtain the theme list size
+     * Uncheck a theme
+     * Again obtain the list size
+     * check if size is less than previous size of theme list
+     */
     @Test(priority = TestConstants.NO_2)
     public void manageThemesWithPhone() throws IOException
     {
 
         browser_wait(TestConstants.WAIT_3000);
 
+        //Enter phone number in password field
         WebElement emailTextField = doc_get("alertme_manageThemes_email_phone_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
         emailTextField.sendKeys(seleniumTest_properties_assert_values_get("alertme_managethemes_Phone_Assert_value"));
         browser_wait(TestConstants.WAIT_1000);
 
 
+        //Enter password
         WebElement password = doc_get("alertme_manageThemes_password_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
         password.sendKeys(seleniumTest_properties_assert_values_get("alertme_managethemes_password_Assert_value"));
         browser_wait(TestConstants.WAIT_1000);
 
+        //Enter submit button
         WebElement submitButton = doc_get("alertme_managethemes_submit_button_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
         submitButton.click();
         browser_wait(TestConstants.WAIT_7000);
 
+        //obtain the list
         List<WebElement>  themeList = doc_list_get("alertme_managethemes_ListofThemes_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
 
         int sizeOfThemes = themeList.size();
         System.out.println("Size Of Themes "+sizeOfThemes);
 
+        //Check size of the
         if(sizeOfThemes > 0)
         {
+            //Uncheck 1st theme
             WebElement themeCheckBox = doc_get("alertme_managethemes_Theme_checkbox_html_id",browser);
             browser_wait(TestConstants.WAIT_2000);
             themeCheckBox.click();
             browser_wait(TestConstants.WAIT_2000);
 
+            //Click on update button
             WebElement updateButton = doc_get("alertme_managethemes_Update_button_html_id",browser);
             browser_wait(TestConstants.WAIT_2000);
             updateButton.click();
@@ -151,12 +186,14 @@ public class ManageThemes extends SeleniumUtil {
         browser_wait(TestConstants.WAIT_3000);
 
 
+        //obtaining new theme list size
         themeList = doc_list_get("alertme_managethemes_ListofThemes_html_id",browser);
         browser_wait(TestConstants.WAIT_2000);
         int checkSize = themeList.size();
 
         System.out.println("CheckSize "+checkSize);
 
+        //Theme list size should be less than previous one
         Assert.assertEquals(checkSize,sizeOfThemes-1,"Error! Theme has not been updated");
 
 

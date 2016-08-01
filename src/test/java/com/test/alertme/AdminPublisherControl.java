@@ -116,9 +116,10 @@ public class AdminPublisherControl extends SeleniumUtil {
         Boolean check = false;
         System.out.println("+++++++++++++"+userList.size()+"+++++++++++");
         int i;
+        String s;
         for(i = 0;i<userList.size();i++)
         {
-            String s = userList.get(i).getText();
+            s = userList.get(i).getText();
             if( s.contains(email) && s.contains(seleniumTest_properties_assert_values_get("alertme_publisher_name_assert_value")))
             {
                 check = true;
@@ -136,15 +137,19 @@ public class AdminPublisherControl extends SeleniumUtil {
         i++;
         String edit = "html/body/div/div/div[2]/div[1]/table/tbody/tr["+i+"]/td[6]/a[1]";
         System.out.println(edit);
+
         WebElement editButton = browser.findElement(By.xpath(edit));
         browser_wait(TestConstants.WAIT_2000);
         editButton.click();
+
         browser_wait(TestConstants.WAIT_2000);
         WebElement checkBox1 = doc_get("alertme_Dashboard_AddPublisher_CheckBox1_html_id",browser);
         checkBox1.click();
+
         browser_wait(TestConstants.WAIT_2000);
         WebElement checkBox2 = doc_get("alertme_Dashboard_AddPublisher_CheckBox2_html_id",browser);
         checkBox2.click();
+
         browser_wait(TestConstants.WAIT_2000);
         WebElement submitButtonEditPage = doc_get("alertme_Dashboard_AddPublisher_SubmitEditPage_html_id",browser);
         submitButtonEditPage.click();
