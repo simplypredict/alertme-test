@@ -103,7 +103,7 @@ public class PublisherAdminDashboard extends SeleniumUtil {
 
 
 
-        String xpathAlertCount = "html/body/div[1]/div/div[2]/div[1]/table/tbody/tr["+i+"]/td[3]";
+        String xpathAlertCount = "html/body/div[1]/div/div[2]/div[1]/table/tbody/tr["+i+1+"]/td[3]";
         WebElement AlertCount = browser.findElement(By.xpath(xpathAlertCount));
 
         String ToCheckvalue = AlertCount.getText();
