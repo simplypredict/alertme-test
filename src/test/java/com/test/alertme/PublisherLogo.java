@@ -165,7 +165,7 @@ public class PublisherLogo extends SeleniumUtil {
             }
             else
             {
-                Assert.assertEquals(imageToCheckWith,"http://52.91.245.79/assets/logo.png","Image is not changed");
+                Assert.assertEquals(imageToCheckWith,"http://alertme:alertme1234@52.91.245.79/assets/logo.png","Image is not changed");
             }
 
         }
